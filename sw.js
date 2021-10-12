@@ -23,17 +23,18 @@ self.addEventListener('install', (event) => {
     // Crear el cache y almacenar el appShell
     const promesaCache = caches.open(CACHE_STATIC_NAME).then((cache) => {
         return cache.addAll([
-            '/',
-            'index.html',
-            'css/page.css',
-            "img/cheems-memes-9.jpg",
-            "js/app.js"
+            '/cache_practica/',
+            '/cache_practica/index.html',
+            '/cache_practica/css/page.css',
+            "/cache_practica/img/cheems-memes-9.jpg",
+            "/cache_practica/js/app.js"
         ])
     })
 
     const promInmutable = caches.open(CACHE_INMUTABLE_NAME).then(cacheInmu => {
         return cacheInmu.addAll([
-            'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css'
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css',
+            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js'
         ])
     })
 
