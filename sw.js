@@ -50,12 +50,13 @@ self.addEventListener('fetch', (event) => {
             if (resp) {
                 return resp;
             }
-            console.log("No esta en cache", event.request.url)
+            console.log("No esta en cache", event.request)
             //voy a la red
             return fetch(event.request)
                 .then(respNet => {
                     caches.open(CACHE_DYNAMIC_NAME)
                         .then((cache) => {
+                            console.log(cache)
                             cache.put(event.request, respNet).then(() => {
                                 cleanCache(CACHE_DYNAMIC_NAME, 5)
                             })
